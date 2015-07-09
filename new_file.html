@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		 <title>Knockout Test</title>
+	    <script type="text/javascript" src="libraries/JQuery/jquery-1.11.3.js"></script>
+	    <script type="text/javascript" src="libraries/jquery-ui/jquery-ui.js"></script>
+	    <script type="text/javascript" src="libraries/Sammy/sammy.js" ></script>
+	    <script type="text/javascript" src="libraries/Knockout/knockout-3.3.0.debug.js"></script>
+	    <script type="text/javascript" src="customBindings.js"></script>
+    	<link rel="Stylesheet" href="category.css" />
+		<link rel="stylesheet" href="libraries/jquery-ui/jquery-ui.css">    	
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<!-- Date: 2015-07-08 -->
+	</head>
+	<body>
+	<h2>Your seat reservations</h2>
+
+<table>
+    <thead><tr>
+        <th>Passenger name</th><th>Meal</th><th>Surcharge</th><th></th>
+    </tr></thead>
+   
+    <tbody data-bind = "foreach: seats">
+        <tr>
+            <td data-bind = "text: name"></td>
+            <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
+            <td data-bind = "text: meal().price"></td>
+        </tr>
+    </tbody>
+</table>
+
+<button data-bind = "click: addSeat"> Resear another Seat </button>
+	</body>
+	<script type="text/javascript" src="reservation.js" ></script>
+</html>
+
